@@ -1,0 +1,623 @@
+<!--
+CS80Q Project: Interface Biases
+
+11/20: This website was built as the final project for Cynthia's CS80Q Introductory Seminar on
+Race and Gender in Silicon Valley. Having dedicated a whole topic of the class on commonly found
+interface biases found throughout the modern Internet, this project aims to serve as a PSA about
+these designs and to promote for more inclusive alternatives, when available!
+-->
+
+<DOCTYPE HTML>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;700&display=swap" rel="stylesheet">
+		<link href="index.css" rel="stylesheet">
+		<title>CS80Q: Interface Biases</title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<!--above is the JS needed for bootstrap's cdn to run, the website code begins below-->
+    <script>
+      // this function checks if a user's input name(s) is less than three characters -> alert msg
+      function short_name(id) {
+        var form = document.getElementById(id);
+        if (form.elements['first-name'].value.length < 3 || form.elements['last-name'].value.length < 3) {
+          alert("Sorry, name lengths must be at least 3 characters long!");
+        }
+      }
+
+      // this function checks if a user's first name exists as a substring within the input password -> alert msg
+      function password_check(id) {
+        var form = document.getElementById(id);
+        var name = String(form.elements['first-name'].value);
+        var password = String(form.elements['password'].value);
+        if (password.includes(name)) alert("Sorry you cannot include your first-name in your password!");
+      }
+
+      // 
+      function set_user(id) {
+        var form = document.getElementById(id);
+        var name = String(form.elements['first-name'].value);
+        var navbar_name = document.getElementById('user-name');
+
+        // if name already set, return
+        if (navbar_name.innerHTML != "") {
+          alert("Sorry, cannot change your name!");
+          return;
+        }
+        
+        // if name not set, update name
+        navbar_name.innerHTML = name;
+        console.log(navbar_name.innerHTML);
+      }
+    </script>
+
+
+    <!-- navbar section -->
+    <nav class="navbar fixed-top navbar-expand-lg rounded-bottom">
+      <div class="container-fluid ">
+        <a class="navbar-brand">Interface Biases</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sections
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#radios">Radios and Gender</a></li>
+                <li><a class="dropdown-item" href="#length">One Letter Names</a></li>
+                <li><a class="dropdown-item" href="#race">Forms and Race</a></li>
+                <li><a class="dropdown-item" href="#name-change">Name Change</a></li>
+                <li><hr class="dropdown-divider"></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <a id="user-name" class="navbar-brand"></a>
+      </div>
+    </nav>
+
+    <!-- about section -->
+		<div class="container" id="about" style="margin-top: 100px; margin-bottom: 25px;">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="raleway text-title text-center">about</h1>
+        </div>
+        <div class="col-12">
+          <p class="raleway text-center">
+            Hello there! This webpage showcases some common forms of interface biases found throughout the web.<br>
+            
+            This page serves as a PSA aiming to promote further diversity and inclusion.
+          </p>
+          <p class="raleway text-center">
+            This webpage was created as my final project for Cynthia Lee's CS80Q: <a class="link" href="https://humanrights.stanford.edu/courses/race-and-gender-silicon-valley-africaam-80q/1" target="_blank" rel="noopener noreferrer">Race and Gender in Silicon Valley</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- radio genders section -->
+    <div class="container pt-2 pb-4" id="radios">
+      <div class="row">
+        <div class="col-12">
+          <p class="raleway text-bold text-center">Radios and Non-Binary Genders</p>
+          <p class="raleway text-center">Reference: <a class="link" href="https://uxdesign.cc/designing-forms-for-gender-diversity-and-inclusion-d8194cf1f51" target="_blank" rel="noopener noreferrer">Sabrina Fonseca</a></p>
+        </div>
+      </div>
+      <div class="row outer-border">
+        <div class="col-11 mx-auto my-4 rounded" style="background-color: white;">
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active pt-5" data-bs-interval="10000" style="height:425px"> <!-- item 1 -->
+                <div class="carousel-entry w-25 mx-auto">
+                  <p class="text-center pt-4">Choose your Gender: *</p>
+                  <div class="d-flex justify-content-center pb-4">
+                    <div class="form-div">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Binary Gender Choice</h5>
+                  <p>This form is unfortunately the most common implementation of this question throughout the web. Although it may be difficult to represent every possible gender affiliation on a registration form,
+                  supporting only a binary radio selection between Male and Female is an injustice given how much more
+                  flexible and representative these next implementations can be. We must do better than this!
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item pt-3" data-bs-interval="2000" style="height:425px"> <!-- item 2 -->
+                <div class="carousel-entry w-25 mx-auto">
+                  <p class="text-center pt-3">What is your Gender:</p>
+                  <div class="d-flex justify-content-center pb-3">
+                    <div class="form-div">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Female
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                          Gender Non-conforming
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
+                        <label class="form-check-label" for="flexRadioDefault4">
+                          Prefer not to say
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>I'd Prefer Not</h5>
+                  <p>Unless this information is absolutely essential, users should be given the choice whether or not to disclose their
+                    gender identity. While this implementation provides better representation for genderqueer/non-conforming, the simplicity
+                    of the radio-style form limits this representation to a single, general option for a wide range of gender identities. Still
+                    much more preferable to the binary form!
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item pt-5" data-bs-interval="2000" style="height:425px"> <!-- item 3 -->
+                <div class="carousel-entry w-25 mx-auto">
+                  <p class="text-center pt-3">What are your Pronouns?</p>
+                  <div class="d-flex justify-content-center pb-3">
+                    <div class="input-group mx-3">
+                      <input type="text" class="form-control" placeholder="Pronouns" aria-label="Pronouns" aria-describedby="button-addon">
+                      <button class="btn btn-success" type="button" id="button-addon">Submit</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Asking for Pronouns Instead</h5>
+                  <p>Unless gender information is essential, it may be more appropriate to ask for a user's pronouns as opposed to their gender.
+                    Taking from platforms such as Instagram and LinkedIn, pronouns can be listed by users through a textbox input. As opposed to radio-style
+                    buttons, this implementation gives users the freedom to correctly identify their preferred pronouns, while also avoiding the problem
+                    of not representing a user's pronouns in a radio-style list.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item pt-3" data-bs-interval="2000" style="height:425px"> <!-- item 4 -->
+                <div class="carousel-entry w-25 mx-auto">
+                  <p class="text-center pt-3">What is your Gender?</p>
+                  <div class="d-flex justify-content-center pb-4">
+                    <div class="form-div">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Female
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" disabled>
+                        <label class="form-check-label" for="flexRadioDefault3">
+                          Other
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                        <label class="form-check-label" for="flexRadioDefault4">
+                          Prefer not to say
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Maybe Don't Ask?</h5>
+                  <p>As Sabrina explains, there are many times where this information is not even necessary to ask in the first place.
+                    Simplifying the process of filling out a form by avoiding the question entirely, this implementation avoids forcing users
+                    to answer this complicated question. Quite simply, unless this information is truly necessary to track (and if so, the reasoning
+                    should be explicitly stated to the user), there is no reason to ask in the first place.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- name length section -->
+    <div class="container py-5" id="length">
+      <div class="row">
+        <div class="col-12">
+          <p class="raleway text-bold text-center">One Letter Name Biases</p>
+          <p class="raleway text-center">Reference: <a class="link" href="https://profiles.stanford.edu/48960" target="_blank" rel="noopener noreferrer">Cynthia Lee </a>and E</p>
+        </div>
+      </div>
+      <div class="row outer-border">
+        <div class="col-11 mx-auto my-4 rounded" style="background-color: white;">
+          <div id="carouselLength" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselLength" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Length 1"></button>
+              <button type="button" data-bs-target="#carouselLength" data-bs-slide-to="1" aria-label="Length 2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active pt-3" data-bs-interval="10000" style="height:425px"> <!-- item 1 -->
+                <div class="carousel-entry w-50 mx-auto">
+                  <form id="one-letter-1">
+                    <div class="input-group my-3 px-5">
+                      <input name="first-name" type="text" class="form-control" placeholder="First name" aria-label="First name" aria-describedby="button-addon2">
+                    </div>
+                    <div class="input-group my-3 px-5">
+                      <input name="last-name" type="text" class="form-control" placeholder="Last name" aria-label="Last name" aria-describedby="button-addon2">
+                    </div>
+                    <button class="btn btn-success mx-5" type="button" onclick="short_name('one-letter-1')">Submit</button>
+                  </form>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Short Name Bias</h5>
+                  <p>Many account creation schemes tend to deny names less than three characters long. For many sites, these shorter names
+                    may pose a problem to searching and indexing for each of these users in their database. But this is not a reason to 
+                    disenfranchise a user's representation!<br>Systems should be fitted to allow these short names through, no strings attached!
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item pt-3" data-bs-interval="2000" style="height:425px"> <!-- item 2 -->
+                <div class="carousel-entry w-50 mx-auto">
+                  <form id="one-letter-2">
+                    <div class="input-group my-3 px-5">
+                      <input name="first-name" type="text" class="form-control" placeholder="First name" aria-label="First name" aria-describedby="button-addon2">
+                    </div>
+                    <div class="input-group my-3 px-5">
+                      <input name="password" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="button-addon2">
+                    </div>
+                    <button class="btn btn-success mx-5" type="button" onclick="password_check('one-letter-2')">Submit</button>
+                  </form>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Password Substring</h5>
+                  <p>Ironically, for sites that do allow one or two character length names, password creation becomes unintentionally challenging.
+                    Some sites tend to check whether or not a user's first or last names are part of their password, denying passwords that 
+                    include this information for account security.
+                    However, this poses a huge problem for short names that may find themselves losing out a whole letter to create their password with!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselLength" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselLength" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- race and ethnicity section -->
+    <div class="container pt-2 pb-5" id="race">
+      <div class="row">
+        <div class="col-12">
+          <p class="raleway text-bold text-center">Forms and Race</p>
+        </div>
+      </div>
+      <div class="row outer-border">
+        <div class="col-11 mx-auto my-4 rounded" style="background-color: white;">
+          <div id="carouselRace" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselRace" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselRace" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselRace" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active pt-2" data-bs-interval="10000" style="height:425px"> <!-- item 1 -->
+                <div class="carousel-entry w-75 mx-auto">
+                  <p class="text-center pt-3">What is your Race/Ethnic Group: *</p>
+                  <div class="d-flex justify-content-center pb-4">
+                    <div class="form-div row">
+                      <div class="col-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="race-form" id="race-radio1">
+                          <label class="form-check-label" for="race-radio1">
+                            Black or African American
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="race-form" id="race-radio2">
+                          <label class="form-check-label" for="race-radio2">
+                            Asian
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="race-form" id="race-radio3">
+                          <label class="form-check-label" for="race-radio3">
+                            Hispanic or Latino
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="race-form" id="race-radio4">
+                          <label class="form-check-label" for="race-radio4">
+                            White
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="race-form" id="race-radio5">
+                          <label class="form-check-label" for="race-radio5">
+                            American-Indian / Alaskan Native
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="race-form" id="race-radio6">
+                          <label class="form-check-label" for="race-radio6">
+                            Native Hawaiian or Pacific Islander
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="race-form" id="race-radio7">
+                          <label class="form-check-label" for="race-radio7">
+                            I choose not to disclose
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Multi-Racial and Ethnic Representation</h5>
+                  <p>Although one's racial/ethnic identity may be difficult to fully represent on such a simple interface, forms should
+                    strive to be as inclusive and representative as possible. The sample above is modified from <a class="link" href="https://careers.google.com" target="_blank" rel="noopener noreferrer">Google Careers</a>' application
+                    form, providing flexibility with checkboxes over radios and the option to not disclose entirely.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item pt-2" data-bs-interval="2000" style="height:425px"> <!-- item 2 -->
+                <div class="carousel-entry w-50 mx-auto">
+                  <p class="text-center pt-3">Where from Asia:</p>
+                  <div class="d-flex justify-content-center pb-3">
+                    <div class="form-div row">
+                      <div class="col-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio1">
+                          <label class="form-check-label" for="asian-radio1">
+                            China
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio2">
+                          <label class="form-check-label" for="asian-radio2">
+                            Japan
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio3">
+                          <label class="form-check-label" for="asian-radio3">
+                            Korea
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio4">
+                          <label class="form-check-label" for="asian-radio4">
+                            Malaysia
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio10">
+                          <label class="form-check-label" for="asian-radio10">
+                            Pakistan
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio5">
+                          <label class="form-check-label" for="asian-radio5">
+                            Indonesia
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio6">
+                          <label class="form-check-label" for="asian-radio6">
+                            Vietnam 
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio7">
+                          <label class="form-check-label" for="asian-radio7">
+                            Thailand
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio8">
+                          <label class="form-check-label" for="asian-radio8">
+                            Cambodia
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="asian-form" id="asian-radio9">
+                          <label class="form-check-label" for="asian-radio9">
+                            India
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Asian Mis-Representation</h5>
+                  <p>As a Filipino myself, there are a number of times where I simply cannot choose my own ethnicity after specifying that
+                    I am Asian. This sample clearly shows that, while also forgetting Laos, Myanmar/Burma, and Mongolia to name a few. In
+                    addition, lists like these are confusing as they are intended to encapsulate one's ethnicity, but there are
+                    situations where ethnicity may not be obvious, such as with Taiwan and Singapore.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item pt-2" data-bs-interval="2000" style="height:425px"> <!-- item 2 -->
+                <div class="carousel-entry w-50 mx-auto">
+                  <p class="text-center pt-3">Where from Asia:</p>
+                  <div class="d-flex justify-content-center pb-3">
+                    <div class="form-div">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="asian-form" id="asian-radio1">
+                        <label class="form-check-label" for="asian-radio1">
+                          East Asia
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="asian-form" id="asian-radio2">
+                        <label class="form-check-label" for="asian-radio2">
+                          Southeast Asia
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="asian-form" id="asian-radio5">
+                        <label class="form-check-label" for="asian-radio5">
+                          South Asia
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="asian-form" id="asian-radio6">
+                        <label class="form-check-label" for="asian-radio6">
+                          Central Asia 
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Regions over Ethnicity</h5>
+                  <p>If possible, users should have the option of choosing the region in which they have descended from. Sorry for the 
+                    odd wording, but first chunking out Asia into smaller subregions and then specifying ethnicities within those regions 
+                    would make the form much easier to use. In addition, by subdividing Asia into each region, it allows for the form to
+                    appear less cluttered while also improving on representation!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselRace" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselRace" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- name change section -->
+    <div class="container py-5" id="name-change">
+      <div class="row">
+        <div class="col-12">
+          <p class="raleway text-bold text-center">Name Change Limitations</p>
+          <p class="raleway text-center">Source: <a class="link" href="https://dev.to/penelope_zone/changing-your-name-is-a-hard-unsolved-problem-in-computer-science-kjf" target="_blank" rel="noopener noreferrer">Penelope Phippen</a></p>
+        </div>
+      </div>
+      <div class="row outer-border">
+        <div class="col-11 mx-auto my-4 rounded" style="background-color: white;">
+          <div id="carouselLength" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselLength" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Length 1"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active pt-2" data-bs-interval="10000" style="height:425px"> <!-- item 1 -->
+                <div class="carousel-entry w-50 mx-auto">
+                  <form id="user-info">
+                    <div class="input-group my-3 px-5">
+                      <input name="first-name" type="text" class="form-control" placeholder="First name" aria-label="First name" aria-describedby="button-addon2">
+                    </div>
+                    <div class="input-group my-3 px-5">
+                      <input name="last-name" type="text" class="form-control" placeholder="Last name" aria-label="Last name" aria-describedby="button-addon2">
+                    </div>
+                    <button class="btn btn-success mx-5" type="button" onclick="set_user('user-info')">Submit</button>
+                  </form>
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Why is it so Difficult?</h5>
+                  <p>
+                    As Penelope writes, many system implementations make it extremely difficult or outright impossible to change one's name with.
+                    Outside of creating a whole new account, users tend to have little to no recourse for implementing a name change. This especially
+                    affects the transgender community as they transition away from their dead-names.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ending thoughts -->
+    <p class="raleway text-center">
+      As with everything, this page is not comprehensive nor complete. <br>If there is anything that you
+      would like me to add/edit on this page, please contact me at <a class="link">cdino@stanford.edu</a>
+    </p>
+</body>
+
+<!-- footer section -->
+<footer class="rounded-top mt-5" style="background-color: #80679b;">
+  <div class="footer-div py-5">
+    <h5 class="raleway text-white text-center">@ <a class="text-white link" href="https://carlodino.com" target="_blank" rel="noopener noreferrer">Carlo Dino</a>, 2022</h5>
+  </div>
+</footer>
+
+<!--
+
+<div class="carousel-item active">
+  <div class="d-flex justify-content-center split-div">
+    <div class="d-flex justify-content-center left-div">hi</div>
+    <div class="rounded split"></div>
+    <div class="d-flex justify-content-center right-div">hi</div>
+  </div>
+</div>
+
+-->

@@ -1,0 +1,77 @@
+/* Navbar Section */
+
+nav.navbar {
+  background-color: #80679b;
+  font-family: Raleway, sans-serif;
+}
+
+nav a.navbar-brand, nav a.navlink:hover, li.nav-item a {
+  color: white;
+}
+
+li.nav-item a:hover, li.nav-item a:active, li.nav-item a:visited, li.nav-item a:link {
+  color: white;
+}
+
+ul.dropdown-menu li a.dropdown-item {
+  color: #252525;
+}
+
+ul.dropdown-menu li a.dropdown-item:active {
+  background-color: white;
+}
+
+/* Text Styles */
+
+.raleway {
+  font-family: Raleway, sans-serif;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-title {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.text-white {
+  color: white;
+}
+
+.link {
+  color: #856ea4;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #5d4878;
+}
+
+/* Carousel Styles */
+.carousel-entry {
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 20px;
+  border-color: #80679b;
+}
+
+.outer-border {
+  border-style: solid;
+  border-width: 20px;
+  border-radius: 20px;
+  border-color: #8b6fa8;;
+}
+
+/* Form Styles */
+
+.split-div {
+
+}
+
+/* Footer Styles */
+
+.footer {
+  background-color:#80679b;
+}
