@@ -3,13 +3,15 @@
 Hello there! I published this website as a final PSA project for Stanford's CS80Q under Cynthia Lee. The project focuses on widely found interface biases on the Internet,
 ranging from accessibility to inclusion concerns.
 
+I built this page using Bootstrap, Javascript, <s>and a lot of patience with Bootstrap</s>.
+
 ***
 
-# Published
+## Published
 
 The website can be accessed following [this link on Github Pages.](https://dev-caelo.github.io/CS80Q-Interface_Bias/)
 
-# References
+## References
 
 Throughout this project, I consulted [Cynthia Lee](https://profiles.stanford.edu/48960) and [E](https://www.linkedin.com/in/egthegreat/) about various forms of biases that
 they have encountered directly.
